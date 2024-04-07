@@ -1,6 +1,6 @@
 import $ from '../util/index.js';
-import TodoInput from '../model/TodoInput.js';
-import TodoList from '../model/TodoList.js';
+import TodoInput from './TodoInput.js';
+import TodoList from './TodoList.js';
 
 export default class TodoView {
   constructor(target) {
