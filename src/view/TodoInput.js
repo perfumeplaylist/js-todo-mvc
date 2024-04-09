@@ -10,10 +10,14 @@ export default class TodoInput {
   }
 
   bindEvent({ inputHandler }) {
-    this.target.addEventListener('keydown', (event) => {
-      const { key, target } = event;
+    this.target.addEventListener('keyup', (event) => {
+      const {
+        key,
+        target: { value },
+      } = event;
+      if (value === '') return;
       if (key === 'Enter') {
-        inputHandler(target.value);
+        inputHandler(value);
         this.render();
       }
     });
