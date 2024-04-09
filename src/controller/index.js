@@ -18,6 +18,7 @@ export default class Controller {
   add(todo) {
     this.model.add(todo);
     this.view.list.render(this.model.todos);
+    this.view.count.render(this.model.state.count);
   }
 
   edit(id, state) {
@@ -28,6 +29,7 @@ export default class Controller {
   remove(id) {
     this.model.remove(Number(id));
     this.view.list.render(this.model.todos);
+    this.view.count.render(this.model.state.count);
   }
 
   changeView(state) {
