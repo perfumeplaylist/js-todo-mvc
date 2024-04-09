@@ -13,6 +13,9 @@ export default class Controller {
       dbClickHandler: this.edit.bind(this),
       keydownHandler: this.edit.bind(this),
     });
+    this.view.filter.bindEvent({
+      clickHandler: this.changeView.bind(this),
+    });
   }
 
   add(todo) {
@@ -33,6 +36,9 @@ export default class Controller {
   }
 
   changeView(state) {
+    const filterTodo = this.model.todos.filter((todo) => todo.state === state);
     this.model.changeView(state);
+    this.view.list.render(state === 'all' ? this.model.todos : filterTodo);
+    this.view.filter.render(this.model.state.viewState);
   }
 }
