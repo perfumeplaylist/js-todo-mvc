@@ -15,7 +15,7 @@ export default class ToDoModel {
     const todo = {
       id: Date.now(),
       content: value,
-      state: false,
+      state: 'active',
     };
     this.todos = [...this.todos, { ...todo }];
     this.setState({ count: this.todos.length });
