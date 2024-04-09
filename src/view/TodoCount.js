@@ -6,6 +6,11 @@ export default class TodoCount {
   }
 
   render(data = 0) {
-    this.target.innerHTML = `총 <strong>${data}</strong> 개`;
+    this.target.innerHTML = '';
+    const fragment = document.createDocumentFragment();
+    const strong = document.createElement('strong');
+    strong.textContent = data;
+    fragment.append(strong);
+    this.target.append('총 ', fragment, '개');
   }
 }
